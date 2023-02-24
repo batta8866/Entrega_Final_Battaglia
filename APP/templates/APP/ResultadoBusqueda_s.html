@@ -1,0 +1,62 @@
+{% extends "APP/sitios_list.html"%}
+<form action="/APP/dato_site/" method="GET"> {% csrf_token %}
+{% block boton_vol%}
+    {% if request.user.is_authenticated %}
+        <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="{% url 'Inicio'%}">Inicio</a>
+        <a class="navbar-brand" href="{% url 'Ver Lista Sitio'%}">Volver a la Lista</a>
+        <a class="navbar-brand" href="{% url 'Search Site'%}">Nueva Busqueda</a>
+    {% else %}
+        <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="{% url 'Inicio'%}">Inicio</a>
+        <a class="navbar-brand" href="{% url 'Search Site'%}">Nueva Busqueda</a>
+    {% endif %}
+
+{% endblock%}
+
+{% block nombre_form%}
+<section class="page-section" id="contact">
+    <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-lg-8 col-xl-6 text-center">
+    <h2 class="mt-0">OH LÀ LÀ !</h2>
+    <hr class="divider" />
+    <p class="text-muted mb-5">Estos son los Lugares con Actividad Paranormal Encontrados</p>
+      
+{%endblock%}
+
+
+{% block caja%}
+    {% for x in resultado %}
+        <div class="form-floating mb-3">
+            <div class="form-control" id="ciudad" name="ciudad" type="text" placeholder="Enter your user mame..." data-sb-validations="required" />
+            <label for="ciudad">Lugar: {{x.ciudad}}</label>
+            <div class="invalid-feedback" data-sb-feedback="user:required">User name is required.</div>
+        </div>
+        <div class="form-floating mb-3">
+            <div class="form-control" id="direccion" name="direccion" type="text" placeholder="Enter your user mame..." data-sb-validations="required" />
+            <label for="direccion">Dirección: {{x.direccion}}</label>
+            <div class="invalid-feedback" data-sb-feedback="user:required">User name is required.</div>
+        </div>
+        <div class="form-floating mb-3">
+            <div class="form-control" id="actividad_paranormal" name="actividad_paranormal" type="text" placeholder="Enter your user mame..." data-sb-validations="required" />
+            <label for="actividad_paranormal">Tipo de Actividad: {{x.actividad_paranormal}}</label>
+            <div class="invalid-feedback" data-sb-feedback="user:required">User name is required.</div>
+        </div>
+        <div class="form-floating mb-3"><br>
+            <div class="form-Textarea" id="datos" name="datos" type="text" placeholder="Enter your user mame..." data-sb-validations="required" />
+            <label for="datos">{{x.datos}}</label>
+            <div class="invalid-feedback" data-sb-feedback="user:required">User name is required.</div>
+        </div>
+        <hr>
+    {% endfor %}
+{%endblock%}
+</p>
+
+{% block bttonenviar%}
+<div class="row gx-lg-50 gx-lg-50 justify-content-center">
+    <div class="col-lg-50 text-center mb-lg-10">
+        <a class="btn btn-primary btn-xl" href="{% url 'Inicio'%}">OK!</a>
+    </div>
+</div> 
+{% endblock%} 

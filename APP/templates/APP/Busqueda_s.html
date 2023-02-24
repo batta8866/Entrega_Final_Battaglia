@@ -1,0 +1,34 @@
+{% extends "APP/sitios_list.html"%}
+
+{% block boton_vol%}
+    {% if request.user.is_authenticated %}
+    <div class="container px-4 px-lg-5">
+    <a class="navbar-brand" href="{% url 'Inicio'%}">Inicio</a>
+    <a class="navbar-brand" href="{% url 'Ver Lista Sitio'%}">Volver a la Lista</a>
+    {% else %}
+    <div class="container px-4 px-lg-5">
+    <a class="navbar-brand" href="{% url 'Inicio'%}">Inicio</a>
+    {% endif %}
+{% endblock%}
+
+{% block nombre_form%}
+<section class="page-section" id="contact">
+    <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-lg-8 col-xl-6 text-center">                                
+    <h2 class="mt-0">Busqueda de Lugares Paranormales</h2>                                
+    <hr class="divider" />                                
+    <p class="text-muted mb-5">Ingresa Tu Pais!</p>
+{%endblock%}
+
+{% block caja%}
+<form action="/APP/dato_site/" method="GET"> {% csrf_token %}
+    <div class="form-floating mb-3">
+        <input class="form-control" id="pais" name="pais" type="text" placeholder="Enter pais..." data-sb-validations="required" />
+        <label for="pais">Pais</label>
+        <div class="invalid-feedback" data-sb-feedback="user:required">pais is required.</div><br>
+    </div>
+<div class="d-grid"><button class="btn btn-primary btn-xl submit" id="submitButton" value="Enviar" type="submit">Buscar</button></div>
+{%endblock%}
+{% block bttonenviar%}
+{% endblock%}

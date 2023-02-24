@@ -1,0 +1,19 @@
+{% extends "APP/inicio.html"%}
+{% block title%}
+<h1 class="text-white font-weight-bold">Registro de Nuevo Usuario</h1>
+{% endblock%}
+
+{% block copete%}
+<form action="" method="POST"> {% csrf_token %}
+
+    <table TABLE ALIGN="center" style="color: #f87342;">
+        {{FormularioR.as_table}}
+    </table>
+    <br><br>
+    <input class="btn btn-primary btn-xl" type="submit" value="Registrar">
+</form>
+
+{% endblock%}
+</p>
+{% block boton%}
+{% endblock%}

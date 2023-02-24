@@ -1,0 +1,35 @@
+{% extends "APP/inicio.html"%}
+{% block title%}
+<div class="content-section">
+    <div class="media">
+        <img class="rounded-circle" alt = "Rounded Image" width="75px" height ="75px" src="{{user.profile.image.url}}">
+        <div class= "media-body" > <br>
+            <h3 class="text-white font-weight-bold">User:&nbsp {{user.username}}<br>
+                <h3 class="text-white font-weight-bold">{{user.first_name}} &nbsp {{user.last_name}}  <br>
+                <h3 class="text-white font-weight-bold"><small>{{user.email}}</small></p>
+            </h3>
+        </div>
+    </div>
+</div>
+<hr style="color: #ffffff;">
+<form method="POST" enctype="multipart/form-data">{% csrf_token %}
+    <fieldset class="form-group">
+        <small class="border-bottom mb-4" style="color: #ffffff;">Modificar</small><br>
+            <br><table TABLE ALIGN="center" style="color: #f87342;">
+                {{ u_form.as_table}}
+                {{ p_form.as_table }}
+            </table><br>
+    </fieldset>
+    <div class="form-group">
+    <button class="btn btn-primary btn-x" type="submit">Update</button>
+</form>
+
+
+{% endblock%}
+
+{% block copete%}
+{% endblock%}
+
+{% block boton%}
+{% endblock%}
+

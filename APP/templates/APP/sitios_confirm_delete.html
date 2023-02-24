@@ -1,0 +1,27 @@
+{% extends "APP/inicio.html"%}
+{% block title%}
+<h1 class="text-white font-weight-bold">Borrar Sitio?</h1>
+{% endblock%}
+
+{% block copete%}
+
+<form action="" method="POST"> {% csrf_token %}
+
+    <div ALIGN="center" style="color: #f87342;">
+        Seguro Queres Borrar Esta Lugar Paranormal? <br> "{{object.direccion}} &nbsp - &nbsp {{object.ciudad}} &nbsp - &nbsp {{object.pais}}"<br>
+    </div> <br>
+    </p> 
+    <p> <input class="btn btn-primary btn-xl" type="submit" value="Borrar"> <a class="btn btn-primary btn-xl" href="{% url 'Ver Lista Sitio'%}">Cancel</a> </p>
+    
+</form>
+
+{% endblock%}
+</p>
+
+{% block boton%}
+{% endblock%}
+
+
+
+
+

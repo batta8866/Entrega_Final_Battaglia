@@ -1,0 +1,21 @@
+{% extends "APP/inicio.html"%}
+{% block title%}
+<h2 class="text-white font-weight-bold">Historias</h2>
+{% endblock%}
+
+{% block copete%}
+    {% for u in object_list %}
+    <article class="media content-section">
+        <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2" href="{% url 'Post-detail' u.id %}">{{ u.titulo }}&nbsp</a>
+            <small class="text-white" >&nbspBy:&nbsp{{u.autor}}</small>
+        </div>
+    </article>
+{% endfor %}
+<br>
+<hr class="divider" />   
+{% endblock%}
+
+{% block boton%}
+{% endblock%}

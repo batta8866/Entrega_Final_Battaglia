@@ -1,0 +1,61 @@
+{% extends "APP/sitios_list.html"%}
+
+{% block boton_vol%}
+<div class="container px-4 px-lg-5">
+<a class="navbar-brand" href="{% url 'Inicio'%}">Inicio</a>
+<a class="navbar-brand" href="{% url 'Post'%}">Volver</a>
+{% endblock%}
+
+{% block nombre_form%}
+<section class="page-section" id="contact">
+    <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-lg-8 col-xl-6 text-center">                                
+    <h2 class="mt-0">{{posteo.titulo}}</h2>                                
+    <hr class="divider" />                                
+    <p class="text-muted mb-5"><small> By:{{posteo.autor}} &nbsp•&nbsp {{posteo.post_date}}</small></p>
+{%endblock%}
+
+{% block caja%}
+    <div class="form-floating mb-3">
+        <p class="form-Textarea" id="da" name="Textarea" type="Textarea" placeholder="..." data-sb-validations="required" />
+        <label for="da">{{posteo.body}} </label>
+        <div class="invalid-feedback" data-sb-feedback="perish:required"></div>
+    </div>
+    {% if user.id == posteo.autor.id%}
+        <a href="{% url 'Post-Edit' posteo.pk%}">Edit</a> &nbsp
+        <a href="{% url 'Post-Delete' posteo.pk%}">Delete</a>
+    {% endif %}
+    <hr class="divider" />
+
+    <form action="{% url 'like_post' posteo.pk%}" method="POST"> {% csrf_token %}
+    <button type="submit" name="posteo_id" value="{{posteo.id}}" class="btn btn-primary btn-sm"> Like </button> - {{total_likes}}&nbspLikes
+    <br><br>
+    <hr>
+
+    {% if not posteo.coments.all %}
+        No hay nada aqui <a href="{% url 'Nuevo-Coment' posteo.pk %}">Comentanos Algo</a>
+    {% else %}
+        <a href="{% url 'Nuevo-Coment' posteo.pk %}">Comenta tambien!</a>
+        <br><br>
+        {% for coment in posteo.coments.all %}
+            <strong>
+                {{coment.name}} - {{coment.post_date}}
+            </strong>
+            <br>
+            <div class="form-floating mb-3">
+                <p class="form-Textarea" id="da" name="Textarea" type="Textarea" placeholder="..." data-sb-validations="required" />
+                <label for="da">{{coment.body}} </label>
+                <div class="invalid-feedback" data-sb-feedback="perish:required"></div>
+            </div>  
+            <br><br>
+        {% endfor %}
+    {% endif %}
+{%endblock%}
+                
+</p>
+
+{% block bttonenviar%}
+<!-- Submit Button-->
+{% endblock%}
+

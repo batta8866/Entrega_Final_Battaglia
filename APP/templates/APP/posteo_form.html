@@ -1,0 +1,39 @@
+{% extends "APP/inicio.html"%}
+
+{% block title%}
+<h2 class="text-white font-weight-bold" >CUENTANOS!</h2>
+
+{% endblock%}
+{% block copete%}
+<form action="" method="POST"> {% csrf_token %}
+    <table ALIGN="center" style="color: #f87342;">
+        {{form.as_table}}
+    </table><br>
+    <input type="submit" value="Postear" class="btn btn-primary btn-xl">
+</form>
+{% endblock%}
+
+</p>
+{% block boton%}
+{% endblock%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% block abajo%}
+<script>
+    var name = "{{user.id}}";
+    document.getElementById('TTLLOO').value
+        = name;
+</script>
+{% endblock%}

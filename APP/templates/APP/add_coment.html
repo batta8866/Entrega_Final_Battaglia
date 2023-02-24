@@ -1,0 +1,17 @@
+{% extends "APP/inicio.html"%}
+{% block title%}
+<h2 class="text-white font-weight-bold">Nuevo Coment</h2>
+{% endblock%}
+
+{% block copete%}
+<form action="" method="POST"> {% csrf_token %}
+    <table ALIGN="center" style="color: #f87342;">
+        {{form.as_table}}
+    </table><br>
+    <input type="submit" value="Enviar" class="btn btn-primary btn-x">
+</form>
+{% endblock%}
+</p>
+{% block boton%}
+<a class="btn btn-primary btn-x" href="{% url 'Inicio'%}">Volver a Inicio</a>
+{% endblock%}

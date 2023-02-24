@@ -1,0 +1,23 @@
+{% extends "APP/inicio.html"%}
+{% block title%}
+<h1 class="text-white font-weight-bold">Borrar Historia?</h1>
+{% endblock%}
+
+{% block copete%}
+
+<form action="" method="POST"> {% csrf_token %}
+
+    <div ALIGN="center" style="color: #f87342;">
+        Seguro Queres Borrar Esta Historia? <br> "{{posteo.titulo}}"<br>
+    </div> <br>
+    </p> 
+    <p> <input class="btn btn-primary btn-xl" type="submit" value="Borrar"> <a class="btn btn-primary btn-xl" href="{% url 'Post-detail' posteo.pk%}">Cancel</a> </p>
+    
+</form>
+
+{% endblock%}
+</p>
+
+{% block boton%}
+{% endblock%}
+
